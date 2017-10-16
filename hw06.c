@@ -25,28 +25,19 @@ struct node * free_list(struct node *list){
 }
 
 int main(){
-  struct node a;
-  struct node b;
-  struct node c;
+  struct node *f = (struct node*) malloc(sizeof(struct node));
 
-  a.next = &b;
-  b.next = &c;
-  c.next = NULL;
+  f->i = 6;
 
-  a.i = 4;
-  b.i = 5;
-  c.i = 6;
-
-  print_list(&a);
-
-  struct node *f;
+  print_list(f);
   
-  f = insert_front(&a,3);
+  f = insert_front(f,3);
+  f = insert_front(f,2);
 
   print_list(f);
 
-  free_list(f);
+  f = free_list(f);
   
-  print_list(f);
+  //print_list(f);
   
 }
